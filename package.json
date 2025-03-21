@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
- "scripts": {
+  "scripts": {
     "dev": "vite",
     "build": "vite build --base=/goit-js-hw-10/",
     "preview": "vite preview",
@@ -11,6 +11,7 @@
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
+    "gh": "^2.8.9",
     "glob": "^11.0.0",
     "postcss": "^8.4.41",
     "postcss-sort-media-queries": "^5.2.0",
