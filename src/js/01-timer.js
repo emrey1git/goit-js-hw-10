@@ -1,9 +1,16 @@
-// Flatpickr'ı input'a bağla
+// // Flatpickr'ı input'a bağla
+// flatpickr('#datetime-picker', {
+//   enableTime: true, // Saat seçimini aç
+//   dateFormat: 'Y-m-d H:i', // Tarih formatı
+//   time_24hr: true, // 24 saat formatı kullan
+//   position: 'below', // Takvimi input'un altına sabitle
+// });
 flatpickr('#datetime-picker', {
-  enableTime: true, // Saat seçimini aç
-  dateFormat: 'Y-m-d H:i', // Tarih formatı
-  time_24hr: true, // 24 saat formatı kullan
-  position: 'below', // Takvimi input'un altına sabitle
+  enableTime: true,
+  dateFormat: 'Y-m-d H:i',
+  time_24hr: true,
+  position: 'auto', // bu kalsın
+  appendTo: document.querySelector('.input-btn'), // takvimi input alanına bağla
 });
 
 const startBtn = document.querySelector('[data-start');
@@ -24,6 +31,7 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
+  position: 'below', // Takvimi input'un altına sabitle
   onClose(selectedDates) {
     userSelectedDate = selectedDates[0]; //seçilen tarih değişkene atanıyor
 

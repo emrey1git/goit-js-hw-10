@@ -6,12 +6,14 @@ body {
     justify-content: center;
     align-items: center;
     background-color: hsl(350, 34%, 21%);
+    overflow: visible;
 }
 
 .timer-container {
     display: flex;
     align-items: center;
     gap: 40px;
+   
 }
 
 .input-btn {
@@ -19,6 +21,17 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    position: relative;
+       
+
+}
+.flatpickr-calendar {
+    position: absolute !important;
+    top: 50px !important;
+    /* Input'un altına bırak */
+    left: 50%;
+    transform: translateX(-50%) !important;
+    z-index: 9999 !important;
 }
 
 /* Input */
