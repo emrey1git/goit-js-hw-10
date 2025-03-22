@@ -1,19 +1,16 @@
 // Flatpickr'ı input'a bağla
-flatpickr("#datetime-picker", {
-  enableTime: true,  // Saat seçimini aç
-  dateFormat: "Y-m-d H:i",  // Tarih formatı
-  time_24hr: true,  // 24 saat formatı kullan
+flatpickr('#datetime-picker', {
+  enableTime: true, // Saat seçimini aç
+  dateFormat: 'Y-m-d H:i', // Tarih formatı
+  time_24hr: true, // 24 saat formatı kullan
+  position: 'below', // Takvimi input'un altına sabitle
 });
 
-
-
-
-
-const startBtn = document.querySelector("[data-start");
-const daysSpan = document.querySelector("[data-days]");
-const hoursSpan = document.querySelector("[data-hours]");
-const minutesSpan = document.querySelector("[data-minutes]");
-const secondsSpan = document.querySelector("[data-seconds]");
+const startBtn = document.querySelector('[data-start');
+const daysSpan = document.querySelector('[data-days]');
+const hoursSpan = document.querySelector('[data-hours]');
+const minutesSpan = document.querySelector('[data-minutes]');
+const secondsSpan = document.querySelector('[data-seconds]');
 
 // Kullanıcının seçtiği tarih burada tutulacak
 let userSelectedDate = null;
@@ -30,13 +27,13 @@ const options = {
   onClose(selectedDates) {
     userSelectedDate = selectedDates[0]; //seçilen tarih değişkene atanıyor
 
-      if (userSelectedDate <= new Date()) {
-        //Eğer geçmiş bir tarih seçildiyse
-        //   window.alert("Please choose a date in the future");
-          iziToast.error({
-        title: "Hata",
-        message: "Please choose a date in the future",
-        position: "topRight",
+    if (userSelectedDate <= new Date()) {
+      //Eğer geçmiş bir tarih seçildiyse
+      //   window.alert("Please choose a date in the future");
+      iziToast.error({
+        title: 'Hata',
+        message: 'Please choose a date in the future',
+        position: 'topRight',
         timeout: 3000, // 3 saniye sonra kapanır
       });
       startBtn.disabled = true; //butonu devre dışoı bırak
@@ -47,10 +44,10 @@ const options = {
 };
 
 //Flatpickr tarih seçiciyi input'a bağlıyoruz
-flatpickr("#datetime-picker", options);
+flatpickr('#datetime-picker', options);
 
-//geri sayımı başlatıyoruz  
-startBtn.addEventListener("click", () => {
+//geri sayımı başlatıyoruz
+startBtn.addEventListener('click', () => {
   if (!userSelectedDate) return;
 
   startBtn.disabled = true; // Başlatınca butonu devre dışı bırak
@@ -62,10 +59,10 @@ startBtn.addEventListener("click", () => {
     if (timeLeft <= 0) {
       clearInterval(countdownInterval);
       return;
-      }
+    }
 
-      //Kalan zamanı hesaplayıp ekrana yazdır
-      const { days, hours, minutes, seconds } = convertMs(timeLeft);
+    //Kalan zamanı hesaplayıp ekrana yazdır
+    const { days, hours, minutes, seconds } = convertMs(timeLeft);
 
     daysSpan.textContent = addLeadingZero(days);
     hoursSpan.textContent = addLeadingZero(hours);
@@ -90,8 +87,5 @@ function convertMs(ms) {
 }
 
 function addLeadingZero(value) {
-  return String(value).padStart(2, "0"); // 1 → 01 gibi formatlama
+  return String(value).padStart(2, '0'); // 1 → 01 gibi formatlama
 }
-
-
-
